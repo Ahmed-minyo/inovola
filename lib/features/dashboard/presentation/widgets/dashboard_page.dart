@@ -63,7 +63,7 @@ class DashboardPage extends StatelessWidget {
                             ),
                           ),
                           const Height(40),
-                          RecentSeeAll(),
+                          RecentSeeAll(expenses: state.expenses),
                         ],
                       ),
                     ),

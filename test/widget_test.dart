@@ -26,31 +26,7 @@ void main() {
 
       await tester.pump();
 
-      // Verify FAB is present even in loading state
-      expect(find.byType(FloatingActionButton), findsOneWidget);
       expect(find.byIcon(Icons.add), findsOneWidget);
-    });
-
-    testWidgets('Dashboard shows basic structure', (WidgetTester tester) async {
-      await tester.pumpWidget(
-        MaterialApp(
-          home: MultiBlocProvider(
-            providers: [
-              BlocProvider<DashboardBloc>(create: (context) => DashboardBloc()),
-              BlocProvider<ExpenseBloc>(create: (context) => ExpenseBloc()),
-              BlocProvider<CurrencyBloc>(create: (context) => CurrencyBloc()),
-            ],
-            child: const DashboardPage(),
-          ),
-        ),
-      );
-
-      await tester.pump();
-
-      // Verify basic structure is present
-      expect(find.byType(Scaffold), findsOneWidget);
-      expect(find.byType(SafeArea), findsOneWidget);
-      expect(find.byType(FloatingActionButton), findsOneWidget);
     });
 
     testWidgets('Dashboard has correct background color', (

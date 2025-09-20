@@ -2,7 +2,7 @@
 
 A lightweight Flutter expense tracking mobile application with currency conversion, pagination, and offline support.
 
-## 🏗️ Architecture Overview
+##  Architecture Overview
 
 This application follows a clean architecture pattern with the BLoC (Business Logic Component) state management approach:
 
@@ -32,7 +32,7 @@ lib/
 └── main.dart
 ```
 
-## 🧠 State Management Approach
+##  State Management Approach
 
 ### BLoC Pattern Implementation
 - **DashboardBloc**: Manages dashboard state, expense list, pagination, and filtering
@@ -44,7 +44,7 @@ lib/
 2. **BLoC** processes events and emits new **States**
 3. **UI** reacts to state changes using `BlocBuilder` and `BlocListener`
 
-## 🌐 API Integration
+##  API Integration
 
 ### Currency Conversion
 - **API Used**: ExchangeRate-API (https://v6.exchangerate-api.com/)
@@ -58,7 +58,7 @@ lib/
 - Error handling and retry logic
 - Support for different base currencies
 
-## 📄 Pagination Strategy
+##  Pagination Strategy
 
 ### Local Database Pagination
 - **Implementation**: SQLite with LIMIT/OFFSET queries
@@ -73,7 +73,7 @@ lib/
 - Support for filtered pagination
 - Memory efficient scrolling
 
-## 💾 Local Storage
+##  Local Storage
 
 ### Database Schema
 ```sql
@@ -96,13 +96,13 @@ createdAt TEXT NOT NULL
 - **Data Persistence**: All data survives app restarts
 
 
-## 🧪 Testing
+## Testing
 
 ### Test Files
 - `test/expense_bloc_test.dart`: BLoC logic testing
 - `test/widget_test.dart`: UI component testing
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Flutter 3.32.3 
@@ -126,22 +126,19 @@ flutter run
 
 
 ### Bonus Features
-🔄 **Pull-to-refresh** on dashboard
-📱 **Responsive design** for various screen sizes
-🎨 **Custom animations** and transitions
-📊 **Summary calculations** with filtering
+**Pull-to-refresh ** on Dashboard
+**Transition Animations
+**Export CSV & PDF 
 
-## 🛠️ Technical Decisions & Trade-offs
+
+
+##  Technical Decisions & Trade-offs
 
 ### Architecture Decisions
 - **BLoC Pattern**: Chosen for predictable state management and testability
 - **SQLite**: Selected for robust local storage with complex queries
 - **Dio**: Used for advanced HTTP features and error handling
 
-### Trade-offs
-- **API Dependency**: Currency conversion requires internet (with fallback)
-- **Local Storage**: Large receipt images may consume device storage
-- **Performance**: Real-time currency conversion may add latency
 
 ### Assumptions Made
 - Users primarily track expenses in USD (base currency)
@@ -149,24 +146,11 @@ flutter run
 - Monthly view is the default filter
 - Mock income data (could be made configurable)
 
-## 🐛 Known Issues & Limitations
-
-### Current Limitations
-- Receipt images are stored locally (no cloud backup)
-- Currency rates are fetched per transaction (could be cached)
-- No expense editing functionality
-
-### Future Improvements
-- Cloud storage integration for receipts
-- Expense editing and deletion
-- Custom category creation
-- Export functionality (CSV/PDF)
-- Charts and analytics
-- Multiple currency portfolio support
 
 
 - ### UI ScreenShots
-https://postimg.cc/gallery/0x92T4W
+https://postimg.cc/gallery/fhVk6N3
+- ** See All Button Opens the dialog for exporting CSV & PDF (Bonus)
 
 ### Running Tests
 
@@ -181,3 +165,5 @@ flutter test
 flutter dart pub run build_runner build
 ```
 
+
+- ### GitHub Code

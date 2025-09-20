@@ -1,0 +1,9 @@
+export 'package:flutter/material.dart';
+export '../../utils/index.dart';
+export 'package:inovola/utils/colors.dart';
+export 'package:inovola/custom_widgets/custom_text.dart';
+export 'package:inovola/custom_widgets/app_bar.dart';
+export 'package:inovola/utils/sizes.dart';
+export 'package:inovola/custom_widgets/custom_drop_list.dart';
+export 'package:inovola/custom_widgets/custom_input_field.dart';
+export 'package:inovola/custom_widgets/custom_button.dart';

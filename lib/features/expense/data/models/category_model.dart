@@ -24,7 +24,7 @@ final List<CategoryModel> categoriesList = [
     color: Colors.brown,
   ),
   CategoryModel(
-    name: 'Transport Paper',
+    name: 'Transport',
     icons: Icons.directions_car,
     color: Colors.purple,
   ),

@@ -15,15 +15,17 @@ class ExpenseBloc extends Bloc<ExpenseEvent, ExpenseState> {
     on<AddExpense>(_onAddExpense);
     on<PickReceipt>(_onPickReceipt);
     on<ResetExpense>(_onResetExpense);
+    on<UpdateCategory>(_onUpdateCategory);
+    on<UpdateCurrency>(_onUpdateCurrency);
+    on<UpdateDate>(_onUpdateDate);
   }
 
   Future<void> _onAddExpense(
     AddExpense event,
     Emitter<ExpenseState> emit,
   ) async {
-    emit(ExpenseLoading());
+    emit(state.copyWith(isLoading: true));
     try {
-      // Fetch exchange rate
       double convertedAmount = event.amount;
       if (event.currency != 'USD') {
         final exchangeData = await _apiClient.getExchangeRates();
@@ -43,9 +45,12 @@ class ExpenseBloc extends Bloc<ExpenseEvent, ExpenseState> {
       );
 
       await _databaseHelper.insertExpense(expense);
-      emit(ExpenseAdded(expense));
+
+      emit(state.copyWith(isLoading: false, addedExpense: expense));
     } catch (e) {
-      emit(ExpenseError('Failed to add expense: $e'));
+      emit(
+        state.copyWith(isLoading: false, error: 'Failed to add expense: $e'),
+      );
     }
   }
 
@@ -62,10 +67,10 @@ class ExpenseBloc extends Bloc<ExpenseEvent, ExpenseState> {
       );
 
       if (image != null) {
-        emit(ExpenseReceiptPicked(image.path));
+        emit(state.copyWith(receiptPath: image.path));
       }
     } catch (e) {
-      emit(ExpenseError('Failed to pick receipt: $e'));
+      emit(state.copyWith(error: 'Failed to pick receipt: $e'));
     }
   }
 
@@ -74,5 +79,17 @@ class ExpenseBloc extends Bloc<ExpenseEvent, ExpenseState> {
     Emitter<ExpenseState> emit,
   ) async {
     emit(ExpenseInitial());
+  }
+
+  void _onUpdateCategory(UpdateCategory event, Emitter<ExpenseState> emit) {
+    emit(state.copyWith(selectedCategory: event.category));
+  }
+
+  void _onUpdateCurrency(UpdateCurrency event, Emitter<ExpenseState> emit) {
+    emit(state.copyWith(selectedCurrency: event.currency));
+  }
+
+  void _onUpdateDate(UpdateDate event, Emitter<ExpenseState> emit) {
+    emit(state.copyWith(selectedDate: event.date));
   }
 }

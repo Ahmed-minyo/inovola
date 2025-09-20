@@ -1,14 +1,14 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:inovola/features/dashboard/presentation/pages/floating_button.dart';
+import 'package:inovola/features/dashboard/presentation/widgets/floating_button.dart';
 import '../../../../custom_widgets/bottom_bar.dart';
 import '../../../../utils/index.dart';
 import '../bloc/dashboard_bloc.dart';
 import '../bloc/event/dashboard_event.dart';
 import '../bloc/state/dashboard_state.dart';
-import 'balance_card.dart';
-import 'expense_item.dart';
-import 'recent_see_all.dart';
-import 'top_header.dart';
+import '../widgets/balance_card.dart';
+import '../widgets/expense_item.dart';
+import '../widgets/recent_see_all.dart';
+import '../widgets/top_header.dart';
 
 class DashboardPage extends StatelessWidget {
   const DashboardPage({super.key});
@@ -20,9 +20,7 @@ class DashboardPage extends StatelessWidget {
       body: BlocConsumer<DashboardBloc, DashboardState>(
         listener: (context, state) {
           if (state is DashboardError) {
-            ScaffoldMessenger.of(
-              context,
-            ).showSnackBar(SnackBar(content: Text(state.message)));
+            showToast(msg: state.message);
           }
         },
         builder: (context, state) {

@@ -22,7 +22,6 @@ class CurrencyBloc extends Bloc<CurrencyEvent, CurrencyState> {
 
       emit(CurrencyLoaded(currencies));
     } catch (e) {
-      // Fallback currencies if API fails
       final fallbackCurrencies = [
         'USD',
         'EUR',

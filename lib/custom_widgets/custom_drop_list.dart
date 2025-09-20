@@ -35,7 +35,6 @@ class CustomDropdownInput<T> extends StatelessWidget {
                   return null;
                 },
             autovalidateMode: AutovalidateMode.onUserInteraction,
-            // dropdownColor: seColor(context),
             hint: CustomText(title: hintText, is400W12S: true),
             style: TextStyle(
               fontWeight: FontWeight.w500,

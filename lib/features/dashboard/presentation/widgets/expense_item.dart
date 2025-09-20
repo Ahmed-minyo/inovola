@@ -99,7 +99,7 @@ class ExpenseItem extends StatelessWidget {
         return Icons.shopping_cart;
       case 'entertainment':
         return Icons.movie;
-      case 'transportation':
+      case 'transport':
         return Icons.directions_car;
       case 'rent':
         return Icons.home;
@@ -120,7 +120,7 @@ class ExpenseItem extends StatelessWidget {
         return Colors.blue;
       case 'entertainment':
         return Colors.orange;
-      case 'transportation':
+      case 'transport':
         return Colors.purple;
       case 'rent':
         return Colors.green;

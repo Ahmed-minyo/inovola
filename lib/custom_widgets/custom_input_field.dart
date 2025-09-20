@@ -25,8 +25,8 @@ class CustomFieldInput extends StatelessWidget {
   final bool showErrorBorder;
   final bool showLabel;
 
-  // ignore: use_key_in_widget_constructors
   const CustomFieldInput({
+    super.key,
     this.validator,
     this.doublePaddingSuffixAll,
     this.hintText,
@@ -78,7 +78,6 @@ class CustomFieldInput extends StatelessWidget {
               color: AppColors.blackColor,
             ),
             decoration: InputDecoration(
-              // contentPadding: EdgeInsets.symmetric(horizontal: 10),
               suffixIcon: Padding(
                 padding: EdgeInsets.all(doublePaddingSuffixAll ?? 8.0),
                 child: iconSuffix,

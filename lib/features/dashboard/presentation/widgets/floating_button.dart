@@ -31,8 +31,7 @@ class FloatingButton extends StatelessWidget {
                     ),
                 transitionsBuilder:
                     (context, animation, secondaryAnimation, child) {
-                      // Slide + fade
-                      const begin = Offset(1.0, 0.0); // from right
+                      const begin = Offset(1.0, 0.0);
                       const end = Offset.zero;
                       const curve = Curves.easeInOut;
 
@@ -47,7 +46,7 @@ class FloatingButton extends StatelessWidget {
                         child: FadeTransition(opacity: animation, child: child),
                       );
                     },
-                transitionDuration: const Duration(milliseconds: 400), // speed
+                transitionDuration: const Duration(milliseconds: 400),
               ),
             );
           },

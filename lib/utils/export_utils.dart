@@ -49,11 +49,6 @@ class ExportUtils {
       '${directory.path}/expenses_${DateTime.now().millisecondsSinceEpoch}.pdf',
     );
 
-    final total = expenses.fold<double>(
-      0,
-      (sum, expense) => sum + expense.amount,
-    );
-
     pdf.addPage(
       pw.MultiPage(
         pageFormat: PdfPageFormat.a4,
@@ -136,9 +131,7 @@ class ExportUtils {
                       ),
                       _buildPdfCell(expense.category),
                       _buildPdfCell('\${expense.amount.toStringAsFixed(2)}'),
-                      _buildPdfCell(
-                        '${expense.originalAmount.toStringAsFixed(2)}',
-                      ),
+                      _buildPdfCell(expense.originalAmount.toStringAsFixed(2)),
                       _buildPdfCell(expense.currency),
                     ],
                   ),

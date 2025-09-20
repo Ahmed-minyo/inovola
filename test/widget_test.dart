@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:inovola/features/dashboard/presentation/widgets/dashboard_page.dart';
+import 'package:inovola/features/dashboard/presentation/pages/dashboard_page.dart';
 import 'package:inovola/features/dashboard/presentation/bloc/dashboard_bloc.dart';
 import 'package:inovola/features/expense/presentation/bloc/expense_bloc.dart';
 import 'package:inovola/features/currency/presentation/bloc/currency_bloc.dart';
@@ -47,7 +47,6 @@ void main() {
 
       await tester.pump();
 
-      // Find the Scaffold and check its background color
       final scaffold = tester.widget<Scaffold>(find.byType(Scaffold));
       expect(scaffold.backgroundColor, equals(const Color(0xFFF5F7FA)));
     });

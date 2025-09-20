@@ -118,7 +118,7 @@ class DatabaseHelper {
     final totalExpenses = result.first['totalExpenses'] as double? ?? 0.0;
 
     return {
-      'totalIncome': 10840.00, // Mock income
+      'totalIncome': 10840.00,
       'totalExpenses': totalExpenses,
       'totalBalance': 10840.00 - totalExpenses,
     };

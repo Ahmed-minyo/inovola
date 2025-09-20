@@ -29,3 +29,24 @@ class AddExpense extends ExpenseEvent {
 class PickReceipt extends ExpenseEvent {}
 
 class ResetExpense extends ExpenseEvent {}
+
+class UpdateCategory extends ExpenseEvent {
+  final String category;
+  const UpdateCategory(this.category);
+  @override
+  List<Object?> get props => [category];
+}
+
+class UpdateCurrency extends ExpenseEvent {
+  final String currency;
+  const UpdateCurrency(this.currency);
+  @override
+  List<Object?> get props => [currency];
+}
+
+class UpdateDate extends ExpenseEvent {
+  final DateTime date;
+  const UpdateDate(this.date);
+  @override
+  List<Object?> get props => [date];
+}

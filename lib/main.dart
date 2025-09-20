@@ -6,7 +6,7 @@ import 'features/dashboard/presentation/bloc/dashboard_bloc.dart';
 import 'features/dashboard/presentation/bloc/event/dashboard_event.dart';
 import 'features/expense/presentation/bloc/expense_bloc.dart';
 import 'features/currency/presentation/bloc/currency_bloc.dart';
-import 'features/dashboard/presentation/widgets/dashboard_page.dart';
+import 'features/dashboard/presentation/pages/dashboard_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

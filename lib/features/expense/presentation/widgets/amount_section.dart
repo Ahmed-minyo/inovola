@@ -2,12 +2,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../utils/index.dart';
 import '../../../currency/presentation/bloc/currency_bloc.dart';
 import '../../../currency/presentation/bloc/state/currency_state.dart';
+import '../bloc/event/expense_event.dart';
+import '../bloc/expense_bloc.dart';
 import 'custom_head_title.dart';
 
 class AmountSection extends StatelessWidget {
-  const AmountSection({super.key, this.controller, this.onChanged, this.value});
+  const AmountSection({super.key, this.controller, this.value});
   final TextEditingController? controller;
-  final void Function(dynamic)? onChanged;
   final dynamic value;
 
   @override
@@ -46,7 +47,13 @@ class AmountSection extends StatelessWidget {
                   if (state is CurrencyLoaded) {
                     return CustomDropdownInput(
                       value: value,
-                      onChanged: onChanged,
+                      onChanged: (value) {
+                        if (value != null) {
+                          context.read<ExpenseBloc>().add(
+                            UpdateCurrency(value),
+                          );
+                        }
+                      },
                       items: state.currencies
                           .map(
                             (currency) => DropdownMenuItem<String>(

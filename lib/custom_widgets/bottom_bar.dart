@@ -23,7 +23,7 @@ class BottomBar extends StatelessWidget {
         children: [
           BottomBarItem(icons: Icons.home_filled, isActive: true),
           BottomBarItem(icons: Icons.bar_chart),
-          const Width(60), // Space for FAB
+          const Width(60),
           BottomBarItem(icons: Icons.credit_card),
           BottomBarItem(icons: Icons.person),
         ],

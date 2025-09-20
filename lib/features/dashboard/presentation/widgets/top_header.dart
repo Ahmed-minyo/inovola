@@ -37,7 +37,11 @@ class TopHeader extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    CustomText(title: 'Good Morning', isWhite: true),
+                    CustomText(
+                      title: 'Good Morning',
+                      fontSize: 11,
+                      color: AppColors.greyColor,
+                    ),
                     const CustomText(
                       title: 'Shihab Rahman',
                       fontSize: 18,

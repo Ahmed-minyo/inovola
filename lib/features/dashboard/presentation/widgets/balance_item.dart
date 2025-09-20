@@ -24,7 +24,6 @@ class BalanceItem extends StatelessWidget {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 color: Colors.white.withValues(alpha: 0.2),
-                // borderRadius: BorderRadius.circular(8),
               ),
               child: Icon(icon, color: Colors.white, size: 15),
             ),

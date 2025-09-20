@@ -1,11 +1,19 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import '../../../../utils/index.dart';
+import '../bloc/event/expense_event.dart';
+import '../bloc/expense_bloc.dart';
 import 'custom_head_title.dart';
 
 class DateSection extends StatelessWidget {
-  const DateSection({super.key, required this.dateController, this.onTap});
+  const DateSection({
+    super.key,
+    required this.dateController,
+    this.initialDate,
+  });
 
   final TextEditingController dateController;
-  final void Function()? onTap;
+  final DateTime? initialDate;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +36,18 @@ class DateSection extends StatelessWidget {
             ),
             contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 14),
           ),
-          onTap: onTap,
+          onTap: () async {
+            final date = await showDatePicker(
+              context: context,
+              initialDate: initialDate,
+              firstDate: DateTime(2020),
+              lastDate: DateTime.now(),
+            );
+            if (date != null) {
+              dateController.text = DateFormat('MM/dd/yy').format(date);
+              context.read<ExpenseBloc>().add(UpdateDate(date));
+            }
+          },
         ),
       ],
     );

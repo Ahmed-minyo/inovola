@@ -110,7 +110,7 @@ createdAt TEXT NOT NULL
 ### Installation
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/expense-tracker-lite.git
+git clone https://github.com/Ahmed-minyo/inovola.git
 ```
 
 2. Install dependencies:
@@ -165,6 +165,3 @@ flutter test
 flutter dart pub run build_runner build
 ```
 
-
-- ### GitHub Code
-https://github.com/Ahmed-minyo/inovola.git
